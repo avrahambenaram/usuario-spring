@@ -10,6 +10,10 @@ public class BuilderUsuario {
   private String telefone;
   private String endereco;
 
+  public BuilderUsuario(String cpf) {
+    this.cpf = cpf;
+  }
+
   public BuilderUsuario setNome(String nome) {
     this.nome = nome;
     return this;
