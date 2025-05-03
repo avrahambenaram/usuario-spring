@@ -10,7 +10,9 @@ public class BuilderUsuario {
   private String telefone;
   private String endereco;
 
-  public BuilderUsuario(String cpf) {
+  public BuilderUsuario(String nome, String email, String cpf) {
+    this.nome = nome;
+    this.email = email;
     this.cpf = cpf;
   }
 
