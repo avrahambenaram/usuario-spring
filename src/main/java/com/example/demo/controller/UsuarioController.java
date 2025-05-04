@@ -55,11 +55,12 @@ public class UsuarioController {
       return "redirect:/usuarios";
     }
   }
-    //
-    // @GetMapping("/usuarios")
-    // public String listarUsuarios(Model model) {
-    //     model.addAttribute("usuarios", RepositorioUsuarios.getInstance().getUsuarios());
-    //     return "usuarios";
-    // }
+
+  @PostMapping("/deletar/{cpf}")
+  public String deletarUsuario(@PathVariable String cpf) {
+    BuilderUsuario builder = new BuilderUsuario("", "", cpf);
+    usuarioService.deletar(builder.buildComum());
+    return "redirect:/usuarios";
+  }
 }
 

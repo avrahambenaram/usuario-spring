@@ -44,7 +44,7 @@ public class RepositorioUsuarios {
   public void remover(Usuario usuario) {
     Usuario usuarioEncontrado = encontrarPorCpf(usuario.getCpf());
     if (usuarioEncontrado != null) {
-      usuarios.remove(usuario);
+      usuarios.remove(usuarioEncontrado);
     }
   }
 }

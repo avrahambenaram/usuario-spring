@@ -2,32 +2,50 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Lista de Usuários</title>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-  <h1>Usuários Cadastrados</h1>
+<body class="w-screen h-screen flex flex-col justify-center items-center gap-2">
+  <h1 class="text-xl font-semibold">Usuários Cadastrados</h1>
 
-  <table border="1">
+  <table class="border-2 gap-2 border-spacing-2">
+    <thead>
       <tr>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>CPF</th>
-        <th>Telefone</th>
-        <th>Endereço</th>
-        <th>Tipo</th>
+        <th class="border-b px-4 py-2">Nome</th>
+        <th class="border-b px-4 py-2">Email</th>
+        <th class="border-b px-4 py-2">CPF</th>
+        <th class="border-b px-4 py-2">Telefone</th>
+        <th class="border-b px-4 py-2">Endereço</th>
+        <th class="border-b px-4 py-2">Tipo</th>
+        <th class="border-b px-4 py-2">Deletar</th>
       </tr>
+    </thead>
+    <tbody>
       <tr th:each="usuario : ${usuarios}">
-        <td th:text="${usuario.nome}"></td>
-        <td th:text="${usuario.email}"></td>
-        <td th:text="${usuario.cpf}"></td>
-        <td th:text="${usuario.telefone}"></td>
-        <td th:text="${usuario.endereco}">
-        <td th:switch="${usuario.tipo}">
-          <span th:case="'admin'">Administrador</span>
-          <span th:case="'comum'">Comum</span>
-          <span th:case="*">Outro tipo</span>
-        </td>
+        <td class="px-4 py-2" th:text="${usuario.nome}"></td>
+        <td class="px-4 py-2" th:text="${usuario.email}"></td>
+        <td class="px-4 py-2" th:text="${usuario.cpf}"></td>
+        <td class="px-4 py-2" th:text="${usuario.telefone}"></td>
+        <td class="px-4 py-2" th:text="${usuario.endereco}">
+          <td class="px-4 py-2" th:switch="${usuario.tipo}">
+            <span th:case="'admin'">Administrador</span>
+            <span th:case="'comum'">Comum</span>
+            <span th:case="*">Outro tipo</span>
+          </td>
+          <td class="px-4 py-2 flex justify-center items-center">
+            <form th:action="@{/usuarios/deletar/{cpf}(cpf=${usuario.cpf})}" method="post">
+              <button class="cursor-pointer" type="submit">
+                <i data-feather="trash-2"></i>
+              </button>
+            </form>
+          </td>
       </tr>
+    </tbody>
   </table>
+
+  <script>
+    feather.replace();
+  </script>
 
   <a th:href="@{/usuarios/novo}">Novo usuário</a>
 </body>
