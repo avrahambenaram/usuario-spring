@@ -8,6 +8,6 @@ import com.example.demo.model.Usuario;
  */
 public abstract class UsuarioFactory {
 
-  abstract Usuario criarUsuario(BuilderUsuario builder);
+  public abstract Usuario criarUsuario(BuilderUsuario builder);
   
 }
