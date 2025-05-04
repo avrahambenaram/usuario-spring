@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Cadastro de Usuário</title>
+</head>
+<body>
+  <h1>Cadastrar Usuário</h1>
+
+  <form th:action="@{/usuarios}" method="post">
+    <label>Nome:</label>
+    <input required type="text" name="nome"><br>
+
+    <label>Email:</label>
+    <input required type="email" name="email"><br>
+
+    <label>CPF:</label>
+    <input required type="text" name="cpf"><br>
+
+    <label>Telefone:</label>
+    <input type="text" name="telefone"><br>
+
+    <label>Endereço:</label>
+    <input type="text" name="endereco"><br>
+
+
+    <label>Tipo:</label>
+    <select name="tipo">
+      <option value="comum">Comum</option>
+      <option value="admin">Administrador</option>
+    </select><br><br>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <a th:href="@{/usuarios}">Ver lista de usuários</a>
+</body>
+</html>
+
