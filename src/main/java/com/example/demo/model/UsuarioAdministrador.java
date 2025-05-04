@@ -43,4 +43,9 @@ public class UsuarioAdministrador implements Usuario {
     return endereco;
 	}
 
+  @Override
+  public String getTipo() {
+    return "admin";
+  }
+
 }

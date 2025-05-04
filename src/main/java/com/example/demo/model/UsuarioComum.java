@@ -43,4 +43,9 @@ public class UsuarioComum implements Usuario {
     return endereco;
 	}
 
+  @Override
+  public String getTipo() {
+    return "comum";
+  }
+
 }

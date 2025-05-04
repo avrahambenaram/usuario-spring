@@ -13,13 +13,19 @@
         <th>CPF</th>
         <th>Telefone</th>
         <th>Endereço</th>
+        <th>Tipo</th>
       </tr>
       <tr th:each="usuario : ${usuarios}">
         <td th:text="${usuario.nome}"></td>
         <td th:text="${usuario.email}"></td>
         <td th:text="${usuario.cpf}"></td>
         <td th:text="${usuario.telefone}"></td>
-        <td th:text="${usuario.endereco}"></td>
+        <td th:text="${usuario.endereco}">
+        <td th:switch="${usuario.tipo}">
+          <span th:case="'admin'">Administrador</span>
+          <span th:case="'comum'">Comum</span>
+          <span th:case="*">Outro tipo</span>
+        </td>
       </tr>
   </table>
 

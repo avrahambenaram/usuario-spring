@@ -9,4 +9,5 @@ public interface Usuario {
   String getCpf();
   String getTelefone();
   String getEndereco();
+  String getTipo();
 }

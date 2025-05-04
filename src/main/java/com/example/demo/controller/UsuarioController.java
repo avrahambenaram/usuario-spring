@@ -41,7 +41,6 @@ public class UsuarioController {
       builder.setTelefone(dto.telefone());
       builder.setEndereco(dto.endereco());
 
-      System.out.println(dto);
       UsuarioFactory factory = dto.tipo().equals("admin")
         ? new UsuarioAdministradorFactory()
         : new UsuarioComumFactory();
