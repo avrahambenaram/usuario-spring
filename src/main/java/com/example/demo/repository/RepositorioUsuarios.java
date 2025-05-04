@@ -25,7 +25,7 @@ public class RepositorioUsuarios {
   }
 
   public List<Usuario> listarUsuarios() {
-    return usuarios;
+    return new ArrayList<>(usuarios);
   }
 
   public Usuario encontrarPorCpf(String cpf) {
