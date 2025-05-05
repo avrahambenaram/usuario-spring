@@ -2,37 +2,51 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Cadastro de Usuário</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body>
-  <h1>Cadastrar Usuário</h1>
+<body class="w-screen h-screen gap-4 flex flex-col justify-center items-center">
+  <h1 class="text-xl font-bold">Cadastrar Usuário</h1>
 
-  <form th:action="@{/usuarios}" method="post">
-    <label>Nome:</label>
-    <input required type="text" name="nome"><br>
+  <form class="shadow-xl rounded p-3 gap-2 flex flex-col justify-center items-center" th:action="@{/usuarios}" method="post">
+    <label class="w-80 cursor-pointer border rounded-md p-2 flex justify-between items-center">
+      <span>Nome:</span>
+      <input class="w-54" placeholder="Digite seu nome" required type="text" name="nome"><br>
+    </label>
 
-    <label>Email:</label>
-    <input required type="email" name="email"><br>
+    <label class="w-80 cursor-pointer border rounded-md p-2 flex justify-between items-center">
+      <span>Email:</span>
+      <input class="w-54" placeholder="Digite seu email" required type="email" name="email"><br>
+    </label>
 
-    <label>CPF:</label>
-    <input required type="text" name="cpf"><br>
+    <label class="w-80 cursor-pointer border rounded-md p-2 flex justify-between items-center">
+      <span>CPF:</span>
+      <input class="w-54" placeholder="Digite seu cpf" required type="number" maxlength="11" name="cpf"><br>
+    </label>
 
-    <label>Telefone:</label>
-    <input type="text" name="telefone"><br>
+    <label class="w-80 cursor-pointer border rounded-md p-2 flex justify-between items-center">
+      <span>Telefone:</span>
+      <input class="w-54" placeholder="Digite seu Telefone" type="text" name="telefone"><br>
+    </label>
 
-    <label>Endereço:</label>
-    <input type="text" name="endereco"><br>
+    <label class="w-80 cursor-pointer border rounded-md p-2 flex justify-between items-center">
+      <span>Endereço:</span>
+      <input class="w-54" placeholder="Digite seu Endereço" type="text" name="endereco"><br>
+    </label>
 
 
-    <label>Tipo:</label>
-    <select name="tipo">
-      <option value="comum">Comum</option>
-      <option value="admin">Administrador</option>
-    </select><br><br>
+    <label>
+      <span>Tipo:</span>
+      <select class="cursor-pointer" name="tipo">
+        <option value="comum">Comum</option>
+        <option value="admin">Administrador</option>
+      </select>
+    </label>
+    <br><br>
 
-    <button type="submit">Cadastrar</button>
+    <button class="cursor-pointer" type="submit">Cadastrar</button>
   </form>
 
-  <a th:href="@{/usuarios}">Ver lista de usuários</a>
+  <a class="cursor-pointer" th:href="@{/usuarios}">Ver lista de usuários</a>
 </body>
 </html>
 
